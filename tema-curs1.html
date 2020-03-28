@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <script>
+
+            let raza = 10;
+            let aria = Math.PI * Math.pow(raza,2);
+            
+            console.log('Aria = ' + aria);
+
+            let filme = ['Avengers Endgame', 'Joker', 'Skyfall', 'Tokyo Drift', 'Titanic'];
+
+            for(let i = 0; i < filme.length; i ++) {
+                console.log(i + ' : ' + filme[i]);
+            }
+
+            let numere = [5, 3, "1", 7, "9", 30, "45", 7];
+            let min = numere[0];
+            let max = numere[0];
+           
+            for(i in numere) {
+
+                if(typeof numere[i] === 'number') {
+
+                    if(min > numere[i])
+                        min = numere[i]
+
+                    else if(max < numere[i])    
+                        max = numere[i]
+                }
+            }
+            console.log('Minimul:' + min);
+            console.log('Maximul:' + max)
+        </script>
+    </body>
+</html>
