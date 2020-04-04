@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+
+        console.log("Exercitiul 1");
+
+        let suma = 749;
+        let monezi = ['RON', 'EUR', 'HUF', 'USD'];
+
+        for(i in monezi){
+
+            switch(monezi[i]) {
+                case 'EUR':
+                    console.log(suma / 4.83 + ' ' + monezi[i]);
+                    break;
+                case 'HUF':
+                    console.log(suma / 0.013 + ' ' + monezi[i]);
+                    break;
+                case 'USD':
+                    console.log(suma /  4.47 + ' ' + monezi[i]);
+                    break;
+                default:
+                    console.log(suma + ' ' + monezi[i]);
+                    break;    
+                }
+        }     
+
+        console.log("Exercitiul 2");
+
+        function tip(x) {
+             return typeof(x);
+        }
+
+        console.log(tip(suma));
+
+        console.log("Exercitiul 3");
+
+        const fraze = [
+                        "Quisque faucibus ipsum id nibh egestas bibendum.",
+                        "Phasellus tincidunt sapien nec est tempus lacinia.",
+                        "Curabitur ac elit at turpis ultrices hendrerit at et tellus.",
+                        "Praesent a magna a ligula gravida sodales eu ut erat.",
+                        "Ut eleifend velit vitae ipsum mattis viverra."
+                        ]
+
+        function concateneaza(x) {
+                let rez = x.charAt(0)
+                for(i=1; i < x.length; i++){
+                    if(x[i] == ' ' && i+1 < x.length){
+                        rez += x[i+1];
+                    }
+                }
+                return rez;
+        }
+     
+      for(i in fraze) {
+          console.log(concateneaza(fraze[i]));
+      }
+
+      console.log("Exercitiul 4");
+
+      class Shape {
+          constructor(culoare, laturi) {
+              this.culoare = culoare;
+              this.laturi = laturi;
+          }
+
+          perimetru() {
+              let perimetru = 0
+              for(i in this.laturi) {
+                  perimetru += this.laturi[i];
+             }
+             return perimetru;
+          }
+
+          semiperimetru() {
+              return this.perimetru()/2;
+          }
+
+          tip() {
+              switch(this.laturi.length) {
+                  case 3:
+                    return 'Triunghi';
+                    break;
+                  case 4:
+                    return 'Patrulater';
+                    break;
+                  case 5:
+                    return 'Pentagon';
+                    break;
+                  case 6:
+                    return 'Hexagon'; 
+                    break;
+                  default:
+                    return 'WORK IN PROGRESS';       
+              }
+          }
+
+      }
+
+      let poligon = new Shape('albastru', [1,2,3,4,5]);
+      console.log(poligon.tip());
+      console.log(poligon.culoare);
+      console.log(poligon.perimetru());
+      console.log(poligon.semiperimetru());
+
+      console.log('Exercitiu 5');
+
+      class Patrat extends Shape {
+        constructor(culoare, laturi) {
+          super(culoare, laturi);
+        }
+        aria() {
+            return this.laturi[0] ** 2;
+        }
+      }
+
+      
+     const patrat = new Patrat('rosu', [4,4,4,4]);
+     console.log(patrat.tip());
+     console.log(patrat.perimetru());
+     console.log(patrat.semiperimetru());
+     console.log(patrat.aria());
+     console.log(patrat.culoare);
+
+
+     class Triunghi extends Shape {
+        constructor(culoare, laturi) {
+          super(culoare, laturi);
+        }
+        aria() {
+            const p = this.semiperimetru()
+            return Math.sqrt( p * (p - this.laturi[0]) * (p - this.laturi[1]) * (p - this.laturi[2]));
+        }
+      }
+
+     const triunghi = new Triunghi('verde', [2,3,4]);
+     console.log(triunghi.tip());
+     console.log(triunghi.perimetru());
+     console.log(triunghi.semiperimetru());
+     console.log(triunghi.aria());
+     console.log(triunghi.culoare);
+
+    </script>
+
+</body>
+</html>
