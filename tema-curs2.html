@@ -2,13 +2,13 @@
 <html>
 
 <body>
-
+  <canvas id="canvasId" width="600px" height="600px" style="border: 1px solid;"></canvas>
     <script>
 
         console.log("Exercitiul 1");
 
-        let suma = 749;
-        let monezi = ['RON', 'EUR', 'HUF', 'USD'];
+        const suma = 749;
+        const monezi = ['RON', 'EUR', 'HUF', 'USD'];
 
         for(i in monezi){
 
@@ -116,6 +116,15 @@
         aria() {
             return this.laturi[0] ** 2;
         }
+        draw() {
+        const latura = this.laturi[0];
+        context.beginPath();
+        context.fillStyle = this.culoare;
+        context.rect(300, 300, latura, latura);
+        context.fill();
+        context.stroke();
+        context.closePath();
+  }
       }
 
       
@@ -143,6 +152,24 @@
      console.log(triunghi.semiperimetru());
      console.log(triunghi.aria());
      console.log(triunghi.culoare);
+
+
+     console.log("Exercitiul 1, tema 3");
+
+     const canvas = document.getElementById('canvasId');
+     const context = canvas.getContext("2d");
+
+    context.beginPath();
+    context.fillStyle = 'blue';
+    context.rect(20, 20 , 50, 50);
+    context.fill();
+    context.stroke();
+    context.closePath();
+
+    console.log("Exercitiul 2, tema 3");
+
+    let patrat2 = new Patrat('red', [100, 100, 100, 100]);
+    patrat2.draw();
 
     </script>
 
