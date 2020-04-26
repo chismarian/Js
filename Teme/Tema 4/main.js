@@ -41,10 +41,15 @@ const shapes = [];
 shapes.push(lShape);
 shapes.push(oShape);
 shapes.push(iShape);
+shapes.push(jShape);
 shapes.push(sShape);
 shapes.push(zShape);
+shapes.push(tShape);
 
-console.log(shapes);
+console.log(lShape);
+
+let shape = shapes[Math.floor(Math.random() * shapes.length)];
+console.log(shape);
 
 const colors = [
     '#ff0000',
@@ -59,49 +64,56 @@ const colors = [
 document.addEventListener("keydown", event => {
     switch (event.key) {
         case 'ArrowUp':
+            if(shape.row > 0) {
                 grid.draw();
-                lShape.moveUp();
-                lShape.draw();
-           
+                shape.up();
+                shape.draw();
+            }
             break;
         case 'ArrowDown':
+            if(shape.row < grid.rows - shape.template.length){
                 grid.draw();
-                lShape.moveDown();
-                lShape.draw();
-                console.log(lShape);
-            break;
+                shape.down();
+                shape.draw();
+            }
+           break;
         case 'ArrowLeft':
-     
+            if(shape.column > 0){
                 grid.draw();
-                lShape.moveLeft();
-                lShape.draw();
-            
+                shape.left();
+                shape.draw();
+            }
             break;
         case 'ArrowRight':
-         
+            if(shape.column < grid.columns - shape.template[0].length){
                 grid.draw();
-                lShape.moveRight();
-                lShape.draw();
+                shape.right();
+                shape.draw();
+            }
             break;
         case 'Enter':
                     grid.draw();
-                    lShape.color = colors[Math.floor(Math.random() * colors.length)];
-                    lShape.draw();
+                    shape.color = colors[Math.floor(Math.random() * colors.length)];
+                    shape.draw();
+                    
                 break;    
     }
 });
 
 // setInterval(() => {
-//     if(lShape.row +3 < grid.rows){
+//     if(shape.row < grid.rows - shape.template.length){
 //         grid.draw();
-//         lShape.moveDown();
-//         lShape.draw();
+//         shape.down();
+//         shape.draw();
 //     }
 //     else {
-//         lShape.moveUp();
+//         shape = shapes[Math.floor(Math.random() * shapes.length)];  
+//         grid.draw();
+//         lShape.up();
+//         lShape.draw();
 //     }
 //     console.log(lShape.row);
-// }, 1000);
+// }, 500);
 
 // function writeText(text, callback) {
 //     console.log('Inainte de afisare');

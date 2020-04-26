@@ -4,19 +4,19 @@ export class Movement extends Shape{
     constructor(row, column, cells) {
         super(row, column, cells);
     }
-    moveUp() {
+    up() {
         this.row--;
     }
 
-    moveDown() {
+    down() {
         this.row++;
     }
 
-    moveLeft() {
+    left() {
         this.column--;
     }
 
-    moveRight() {
+    right() {
         this.column++;
     }
 }
