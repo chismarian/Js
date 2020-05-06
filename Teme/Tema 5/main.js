@@ -42,9 +42,13 @@ document.addEventListener("keydown", event => {
 });
 
 const animate = () => {
-    if(movement.canMove) {
+
+
+    if(movement.canMove) { 
         movement.down();
+   
     } else {
+        movement.canMove =false;
         shape.checkIfRemoveline()
         score += shape.score;
         document.getElementById('score').value = score;
@@ -61,7 +65,7 @@ const animate = () => {
 }
 
  document.getElementById("start").addEventListener("click", event => {
-    let intervalId = setInterval(animate, 500);
+    intervalId = setInterval(animate, 1500);
  });
 
 

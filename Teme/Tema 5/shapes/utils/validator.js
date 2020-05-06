@@ -21,7 +21,9 @@ export class Validator {
                 if(this.shape.template[row][column] === 1 && !isEmpty) {
                     return true;
                 }
+             
             }
+               console.log(isEmpty)
         }
 
         return false;
